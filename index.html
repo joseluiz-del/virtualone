@@ -1,112 +1,907 @@
 <!DOCTYPE html>
-<!-- saved from url=(0130)file:///C:/Users/HxTos/Desktop/Port%20Automation/HXtos%20CY/HXtos%20CY%20%E2%80%94%20Virtual%20Yard%20%E2%80%A2%20%C3%8Dndice.html -->
+<!-- saved from url=(0079)file:///C:/Users/HxTos/Downloads/damage_based_on_vsc_model_no_popular_demo.html -->
 <html lang="pt-BR"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>HXtos CY — Virtual Yard • Índice</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>CY | Damage (Modelo VSC)</title>
   <style>
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap');
 :root{
-  --bg:#080b0e; --bg2:#0e1319; --panel:#0f1821; --muted:#8ea3b7;
-  --line:#172233; --fg:#eef3f8; --accent:#00e0bb; --accent2:#53b2ff;
-  --warn:#ffd166; --danger:#ff6b6b; --success:#6ee7b7;
-}
-*{box-sizing:border-box}
-html,body{height:100%}
-body{margin:0;background:var(--bg);color:var(--fg);font-family:"Montserrat",system-ui,Segoe UI,Roboto,Arial,sans-serif}
-.header{position:sticky;top:0;z-index:10;border-bottom:1px solid var(--line);background:linear-gradient(180deg,var(--bg2),var(--bg))}
-.header .top{display:flex;align-items:center;justify-content:space-between;padding:18px 24px}
-.brand{display:flex;gap:12px;align-items:center}
-.logo{width:30px;height:30px;border-radius:7px;background:linear-gradient(135deg,var(--accent),#1affd6);box-shadow:0 0 18px rgba(0,224,187,.25)}
-.brand h1{font-size:19px;margin:0 0 2px 0;font-weight:800;letter-spacing:.3px}
-.subtitle{font-size:12px;color:var(--muted)}
-.nav{display:flex;gap:10px;padding:8px 24px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#0b131a;overflow:auto}
-.nav a{font-size:12.5px;padding:8px 12px;border:1px solid var(--line);border-radius:999px;color:#b8c7d6;white-space:nowrap;text-decoration:none}
-.nav a:hover{border-color:var(--accent);color:var(--accent)}
-.container{padding:24px;max-width:1440px;margin:0 auto}
-.section{margin:20px 0 28px 0}
-.h{display:flex;align-items:center;gap:10px;margin:0 0 14px 0}
-.h h2{font-size:16px;margin:0;letter-spacing:.2px}
-.h .tag{font-size:11px;padding:4px 9px;border:1px solid var(--line);border-radius:999px;color:var(--muted)}
-.panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px 16px;box-shadow:0 6px 20px rgba(0,0,0,.18)}
-.grid{display:grid;gap:16px}
-.grid.cols-2{grid-template-columns:1fr 1fr}
-.grid.cols-3{grid-template-columns:1fr 1fr 1fr}
-.kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
-.kpi{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:14px 16px}
-.kpi .label{font-size:12px;color:var(--muted)}
-.kpi .value{font-size:22px;font-weight:800;margin-top:6px}
-.kpi .trend{font-size:12px;margin-top:6px;color:var(--success)}
-.kpi .trend.down{color:var(--danger)}
-.input, select, textarea{background:#0c1117;color:var(--fg);border:1px solid var(--line);border-radius:10px;padding:12px 12px;font-size:13.5px;width:100%}
-label{font-size:12px;color:var(--muted);display:block;margin-bottom:6px}
-.row{display:grid;grid-template-columns:repeat(12,1fr);gap:12px}
-.col-3{grid-column:span 3}.col-4{grid-column:span 4}.col-6{grid-column:span 6}.col-8{grid-column:span 8}.col-12{grid-column:span 12}
-.table{width:100%;border-collapse:collapse}
-.table th,.table td{border-bottom:1px solid var(--line);padding:13px 11px;text-align:left;font-size:13.5px;line-height:1.5}
-.table th{color:#9ab1c5;font-weight:800;font-size:12.5px;letter-spacing:.3px;text-transform:uppercase}
-.badge{padding:5px 9px;border:1px solid var(--line);border-radius:999px;font-size:11.5px;color:#9db1c7;font-weight:700}
-.badge.ok{color:var(--success);border-color:var(--success)}
-.badge.warn{color:var(--warn);border-color:var(--warn)}
-.badge.err{color:var(--danger);border-color:var(--danger)}
-.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px}
-.taglist{display:flex;gap:6px;flex-wrap:wrap}
-.tagitem{font-size:11.5px;border:1px dashed var(--line);border-radius:999px;padding:6px 10px;color:#9db1c7;font-weight:600}
-.bar{height:12px;background:#0e141c;border-radius:999px;border:1px solid var(--line);overflow:hidden}
-.bar > i{display:block;height:100%;width:0%;background:linear-gradient(90deg,var(--accent),#1affd6)}
-.footer{padding:18px 24px;color:var(--muted);border-top:1px solid var(--line);margin-top:22px}
-</style>
-</head>
-<body>
+      --bg:#e9ecef; --card:#fff; --text:#1f2a37; --muted:#6b7280;
+      --line:#d9dde3; --teal:#00a6c8; --teal2:#028eaa;
+      --shadow:0 10px 22px rgba(16,24,40,.12);
+      --r12:12px; --r10:10px;
+      --focus:rgba(0,166,200,.28);
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Montserrat,Segoe UI,system-ui,Arial,sans-serif;background:var(--bg);color:var(--text)}
+    /* Top */
+    .topbar{
+      height:64px; position:sticky; top:0; z-index:5;
+      background:linear-gradient(90deg,var(--teal2),var(--teal));
+      display:flex; align-items:center; padding:0 16px; color:#fff;
+      box-shadow:0 6px 14px rgba(0,0,0,.12);
+    }
+    .iconbtn{
+      width:38px;height:38px;border-radius:10px;border:1px solid rgba(255,255,255,.28);
+      background:rgba(255,255,255,.12); display:grid; place-items:center; cursor:pointer;
+      transition:.15s ease;
+    }
+    .iconbtn:hover{transform:translateY(-1px);background:rgba(255,255,255,.18)}
+    .brand{flex:1;text-align:center;font-weight:900;letter-spacing:.10em;font-size:20px;user-select:none}
+    .wrap{max-width:1400px;margin:0 auto;padding:14px}
+    /* Card */
+    .card{background:var(--card);border-radius:var(--r12);box-shadow:var(--shadow);border:1px solid rgba(0,0,0,.05);overflow:hidden}
+    .cardHeader{padding:16px 18px 10px;border-bottom:1px solid rgba(0,0,0,.06)}
+    .title{margin:0;font-size:26px;font-weight:900;color:var(--teal2)}
+    /* Tabs */
+    .tabs{margin-top:12px;display:flex;gap:10px;flex-wrap:wrap}
+    .tab{
+      border:1px solid rgba(0,0,0,.10);background:#f7fbfc;color:#0e5564;
+      padding:10px 12px;border-radius:999px;cursor:pointer;font-weight:800;font-size:13px;
+      display:flex;align-items:center;gap:8px;transition:.15s ease;user-select:none;
+    }
+    .tab:hover{transform:translateY(-1px)}
+    .tab.active{background:rgba(0,166,200,.16);border-color:rgba(0,166,200,.35);color:#004c5c}
+    .pill{width:10px;height:10px;border-radius:999px;background:var(--teal2);box-shadow:0 0 0 4px rgba(0,166,200,.16)}
+    .content{padding:14px 16px 16px}
+    .twoCol{display:grid;grid-template-columns:1.2fr 1fr;gap:18px}
+    @media (max-width:1060px){.twoCol{grid-template-columns:1fr}}
+    .panel{
+      border:1px solid rgba(0,0,0,.08);border-radius:var(--r10);padding:14px;background:#fff;
+    }
+    .sub{margin:0 0 10px;font-weight:900;color:#0e5564;font-size:16px}
+    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    @media (max-width:520px){.grid2{grid-template-columns:1fr}}
+    .field{display:flex;flex-direction:column;gap:7px}
+    .label{font-size:12px;color:var(--muted);font-weight:800}
+    input,select{
+      border:1px solid rgba(0,0,0,.14);border-radius:8px;padding:10px 12px;outline:none;
+      background:#f2f2f2;color:#2b2b2b;font-size:13px;transition:.15s ease;
+    }
+    input:focus,select:focus{border-color:rgba(0,166,200,.55);box-shadow:0 0 0 4px var(--focus);background:#fff}
+    .btnrow{display:flex;gap:12px;justify-content:flex-end;align-items:center;margin-top:10px;flex-wrap:wrap}
+    .btn{
+      border:none;padding:10px 14px;border-radius:10px;font-weight:900;cursor:pointer;
+      transition:.15s ease;font-size:13px;min-width:150px;display:inline-flex;gap:10px;align-items:center;justify-content:center;
+    }
+    .btn.light{background:#bfefff;color:#0a6477}
+    .btn.primary{background:var(--teal2);color:#fff}
+    .btn.ghost{background:#f6f7f9;border:1px solid rgba(0,0,0,.10);color:#1c4450}
+    .btn:hover{transform:translateY(-1px);filter:brightness(.98)}
+    .divider{height:1px;background:rgba(0,0,0,.10);margin:12px 0}
+    .hint{margin:0;color:var(--muted);font-weight:700;font-size:12px;line-height:1.35}
+    /* Compass (direção empilhamento) */
+    .configGrid{display:grid;grid-template-columns:230px 1fr 1fr;gap:12px;align-items:start}
+    @media (max-width:920px){.configGrid{grid-template-columns:1fr}}
+    .compassWrap{display:flex;flex-direction:column;gap:10px}
+    .compassLabel{font-weight:900;color:#0e5564;font-size:13px}
+    .compass{
+      width:190px;height:190px;border-radius:999px;border:2px solid rgba(0,0,0,.12);position:relative;
+      background:radial-gradient(circle at 30% 30%,#fff,#f1f6f8);box-shadow:0 10px 18px rgba(0,0,0,.10);
+    }
+    .ring{position:absolute;inset:14px;border-radius:999px;border:1px solid rgba(0,0,0,.14)}
+    .cross{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none}
+    .cross::before,.cross::after{content:"";position:absolute;background:rgba(0,166,200,.65);border-radius:999px}
+    .cross::before{width:2px;height:150px}.cross::after{height:2px;width:150px}
+    .dirbtn{
+      position:absolute;width:34px;height:34px;border-radius:999px;background:#fff;border:1px solid rgba(0,0,0,.12);
+      display:grid;place-items:center;font-weight:900;font-size:11px;color:#0e5564;cursor:pointer;transition:.12s ease;
+    }
+    .dirbtn:hover{transform:translateY(-1px)}
+    .dirbtn.active{background:var(--teal2);color:#fff;box-shadow:0 8px 14px rgba(0,166,200,.25)}
+    .N{top:-10px;left:50%;transform:translateX(-50%)} .NE{top:16px;right:16px}
+    .E{top:50%;right:-10px;transform:translateY(-50%)} .SE{bottom:16px;right:16px}
+    .S{bottom:-10px;left:50%;transform:translateX(-50%)} .SO{bottom:16px;left:16px}
+    .O{top:50%;left:-10px;transform:translateY(-50%)} .NO{top:16px;left:16px}
+    .needle{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none}
+    .needle svg{width:96px;height:96px;opacity:.92;transform-origin:50% 50%}
+    /* Toggle (Row/Tier) */
+    .toggleRow{display:flex;align-items:center;gap:10px;margin-top:4px}
+    .toggle{
+      width:52px;height:28px;border-radius:999px;background:#dde3ea;border:1px solid rgba(0,0,0,.12);
+      position:relative;cursor:pointer;transition:.15s ease;
+    }
+    .toggle::after{
+      content:"";width:22px;height:22px;border-radius:999px;position:absolute;top:2px;left:2px;background:#fff;
+      box-shadow:0 4px 10px rgba(0,0,0,.12);transition:.15s ease;
+    }
+    .toggle.on{background:rgba(0,166,200,.28);border-color:rgba(0,166,200,.35)}
+    .toggle.on::after{left:28px;background:#eaffff}
+    .tag{font-size:12px;font-weight:900;color:#0e5564}
+    /* Visualização (grid) */
+    .vizPanel{border-left:1px solid rgba(0,0,0,.12);padding-left:18px}
+    @media (max-width:1060px){.vizPanel{border-left:none;padding-left:0;border-top:1px solid rgba(0,0,0,.12);padding-top:16px}}
+    .vizHead{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px;flex-wrap:wrap}
+    .vizTitle{margin:0;font-size:14px;font-weight:900;color:#0e5564}
+    .walls{display:flex;gap:8px;align-items:center;flex-wrap:wrap;color:var(--muted);font-size:12px;font-weight:800}
+    .ck{
+      display:flex;gap:6px;align-items:center;background:#f6f7f9;border:1px solid rgba(0,0,0,.10);
+      padding:6px 8px;border-radius:999px;cursor:pointer;user-select:none
+    }
+    .ck input{margin:0;width:16px;height:16px}
+    .yardWrap{display:grid;grid-template-columns:40px 1fr;gap:8px;align-items:start;margin-top:8px}
+    .yAxis{display:flex;flex-direction:column;gap:14px;padding-top:8px;align-items:flex-end;font-weight:900;color:#232a31}
+    .yard{
+      border-radius:12px;padding:10px 10px 6px;background:#fff;border:1px solid rgba(0,0,0,.10);
+      display:inline-block;position:relative;
+    }
+    .yardGrid{display:grid;gap:10px;justify-content:start;align-content:start}
+    .slot{
+      width:40px;height:40px;background:#dcdcdc;border-radius:3px;border:1px solid rgba(0,0,0,.06);
+      cursor:pointer;transition:.12s ease;position:relative;
+    }
+    .slot:hover{transform:translateY(-1px);filter:brightness(.98)}
+    .slot.occ{background:rgba(0,166,200,.28)}
+    .slot.occ::after{content:"";position:absolute;inset:10px;border-radius:2px;border:2px solid rgba(2,142,170,.75)}
+    .xAxis{display:grid;gap:10px;margin-left:40px;margin-top:8px;font-weight:900;color:#232a31}
+    .xAxis span{display:block;width:40px;text-align:center}
+    .yardWallsTop,.yardWallsBottom{position:absolute;left:10px;right:10px;height:10px;display:flex;justify-content:center;align-items:center;pointer-events:none}
+    .yardWallsTop{top:-2px}.yardWallsBottom{bottom:-2px}
+    .yardWallsLeft,.yardWallsRight{position:absolute;top:10px;bottom:10px;width:10px;display:flex;justify-content:center;align-items:center;pointer-events:none}
+    .yardWallsLeft{left:-2px}.yardWallsRight{right:-2px}
+    .wallLine{background:#cfd6dd;border-radius:999px}
+    /* Table */
+    .tableCard{margin-top:14px;background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:var(--r12);box-shadow:var(--shadow);overflow:hidden}
+    .tableHead{padding:16px 16px 10px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+    .tableTitle{margin:0;font-size:24px;font-weight:900;color:var(--teal2)}
+    .exportBtn{
+      border:none;background:var(--teal2);color:#fff;border-radius:12px;padding:12px 16px;font-weight:900;
+      cursor:pointer;display:inline-flex;align-items:center;gap:10px;min-width:260px;justify-content:center;
+      transition:.15s ease;
+    }
+    .exportBtn:hover{filter:brightness(.98);transform:translateY(-1px)}
+    .searchbar{padding:10px 16px 0}
+    .search{
+      width:100%;border-radius:8px;background:#efefef;border:1px solid rgba(0,0,0,.12);
+      padding:11px 12px 11px 38px;outline:none;font-weight:800;
+      background-image:radial-gradient(circle at 14px 50%,rgba(0,0,0,.35) 2px,transparent 3px);
+      background-repeat:no-repeat;background-size:20px 20px;background-position:10px 50%;
+    }
+    table{width:100%;border-collapse:collapse;font-size:13px}
+    th,td{padding:12px 10px;border-bottom:1px solid rgba(0,0,0,.10);text-align:left;white-space:nowrap}
+    th{color:var(--teal2);font-weight:900;font-size:12px}
+    td{color:#2a2a2a;font-weight:800}
+    .actions{display:flex;gap:8px;align-items:center}
+    .smallBtn{border:none;background:var(--teal2);color:#fff;border-radius:7px;padding:8px 10px;font-weight:900;cursor:pointer;font-size:11px}
+    .smallBtn.icon{width:34px;padding:8px 0}
+    .smallBtn.secondary{background:#1aa2bb}.smallBtn.danger{background:#0f7e95}
+    .foot{padding:12px 16px;color:var(--muted);font-weight:800;font-size:12px;display:flex;justify-content:flex-end;gap:10px;flex-wrap:wrap}
+    /* Toast */
+    .toast{
+      position:fixed;bottom:16px;right:16px;background:#0e5564;color:#fff;padding:12px 14px;border-radius:12px;
+      box-shadow:0 14px 28px rgba(0,0,0,.20);opacity:0;transform:translateY(10px);transition:.18s ease;
+      max-width:420px;z-index:20;font-weight:900;font-size:13px
+    }
+    .toast.show{opacity:1;transform:translateY(0)}
   
-<div class="header">
-  <div class="top">
-    <div class="brand">
-      <div class="logo"></div>
-      <div>
-        <h1>HXtos CY — Virtual Yard</h1>
-        <div class="subtitle">Camada lógica multi-site • Painéis e configurações</div>
+    /* Required + validation */
+    :root{
+      --danger:#c1121f;
+      --dangerBg: rgba(193,18,31,.10);
+      --ok:#1f7a1f;
+      --amber:#a85d00;
+    }
+    .req{color:var(--danger);font-weight:900}
+    .error input,.error select{
+      border-color: var(--danger)!important;
+      background: var(--dangerBg)!important;
+      box-shadow: 0 0 0 4px rgba(193,18,31,.14)!important;
+    }
+    .errmsg{display:none;color:var(--danger);font-weight:900;font-size:12px;line-height:1.2}
+    .error .errmsg{display:block}
+
+    /* Gate Decision + chips */
+    .statusBox{
+      border:1px dashed rgba(0,0,0,.18);
+      border-radius:12px;
+      padding:12px;
+      background:#fbfdfe;
+      display:flex;flex-direction:column;gap:8px;
+    }
+    .statusLine{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-weight:900;font-size:13px}
+    .badge{
+      padding:6px 10px;border-radius:999px;font-weight:900;font-size:12px;
+      border:1px solid rgba(0,0,0,.10);
+      background:#f6f7f9;color:#1c4450;
+    }
+    .badge.ok{background:rgba(31,122,31,.10);border-color:rgba(31,122,31,.22);color:var(--ok)}
+    .badge.warn{background:rgba(193,18,31,.08);border-color:rgba(193,18,31,.18);color:var(--danger)}
+    .badge.amber{background:rgba(168,93,0,.10);border-color:rgba(168,93,0,.20);color:var(--amber)}
+    .chipRow{display:flex;gap:8px;flex-wrap:wrap}
+    .chip{
+      display:inline-flex;gap:8px;align-items:center;
+      padding:8px 10px;border-radius:999px;
+      background:#f6f7f9;border:1px solid rgba(0,0,0,.10);
+      font-weight:900;font-size:12px;color:#0e5564;
+      cursor:pointer;user-select:none;transition:.12s ease;
+    }
+    .chip:hover{transform:translateY(-1px)}
+    .chip .dot{width:10px;height:10px;border-radius:999px;background:var(--teal2);box-shadow:0 0 0 4px rgba(0,166,200,.16)}
+    .chip.off{opacity:.55}
+    .chip.off .dot{background:#7b8794;box-shadow:none}
+
+
+    /* -----------------------------
+       DAMAGE ADAPTATION (MODEL UI)
+       ----------------------------- */
+
+    /* The original Damage prototype used a sidebar. We hide any leftover layout helpers. */
+    .app,.sidebar{display:none !important;}
+
+    /* Page switcher (kept from Damage JS) */
+    .page{display:none;}
+    .page.active{display:block;}
+
+    /* Inner header (from Damage) */
+    .top{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:12px;
+      margin-bottom:12px;
+      flex-wrap:wrap;
+    }
+    #pageTitle{margin:0;font-size:18px;font-weight:900;color:var(--teal2)}
+    #pageSub{margin-top:4px;color:var(--muted);font-weight:800;font-size:12px;line-height:1.35}
+
+    /* Two-column content used in Damage pages */
+    .grid{display:grid;grid-template-columns:1.15fr .85fr;gap:18px}
+    @media (max-width:1060px){.grid{grid-template-columns:1fr}}
+
+    /* Reuse "card" styling for nested cards, but soften the shadow */
+    .content .card{
+      box-shadow: 0 8px 18px rgba(16,24,40,.10);
+      border:1px solid rgba(0,0,0,.06);
+      border-radius:12px;
+      overflow:hidden;
+    }
+    .content .card h2{
+      margin:0;
+      padding:14px 16px 10px;
+      font-size:14px;
+      font-weight:900;
+      color:#0e5564;
+      border-bottom:1px solid rgba(0,0,0,.06);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .content .body{padding:14px 16px 16px}
+
+    /* Lists used in Damage (left panel) */
+    .list{
+      background:#fff;
+      border:1px solid rgba(0,0,0,.08);
+      border-radius:12px;
+      overflow:hidden;
+    }
+    .list .item{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      padding:12px 12px;
+      border-top:1px solid rgba(0,0,0,.08);
+      cursor:pointer;
+      transition:.12s ease;
+    }
+    .list .item:first-child{border-top:none}
+    .list .item:hover{background:rgba(0,166,200,.10); transform:translateY(-1px)}
+
+    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}
+
+    /* Tag pills (used by Damage JS) */
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:7px 10px;
+      border-radius:999px;
+      background:#f6f7f9;
+      border:1px solid rgba(0,0,0,.10);
+      font-weight:900;
+      font-size:12px;
+      color:#0e5564;
+      white-space:nowrap;
+      user-select:none;
+    }
+    .tag .dot{
+      width:10px;height:10px;border-radius:999px;
+      background:var(--teal2);
+      box-shadow:0 0 0 4px rgba(0,166,200,.16);
+    }
+    .tag.ok{background:rgba(31,122,31,.10);border-color:rgba(31,122,31,.18);color:var(--ok)}
+    .tag.ok .dot{background:var(--ok);box-shadow:0 0 0 4px rgba(31,122,31,.14)}
+    .tag.warn{background:rgba(168,93,0,.10);border-color:rgba(168,93,0,.18);color:var(--amber)}
+    .tag.warn .dot{background:var(--amber);box-shadow:0 0 0 4px rgba(168,93,0,.14)}
+    .tag.bad{background:rgba(193,18,31,.10);border-color:rgba(193,18,31,.18);color:var(--danger)}
+    .tag.bad .dot{background:var(--danger);box-shadow:0 0 0 4px rgba(193,18,31,.14)}
+    .tag.info{background:rgba(0,166,200,.14);border-color:rgba(0,166,200,.24);color:#004c5c}
+    .tag.info .dot{background:var(--teal2);box-shadow:0 0 0 4px rgba(0,166,200,.16)}
+
+    /* Buttons from Damage should look like the model buttons */
+    .btn{
+      border:none;
+      padding:10px 14px;
+      border-radius:10px;
+      font-weight:900;
+      cursor:pointer;
+      transition:.15s ease;
+      font-size:13px;
+      min-width:150px;
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      justify-content:center;
+    }
+    .btn:hover{transform:translateY(-1px);filter:brightness(.98)}
+    .btn.primary{background:var(--teal2);color:#fff}
+    /* If a button has no variant, treat as ghost */
+    .btn:not(.primary):not(.light):not(.ghost){background:#f6f7f9;border:1px solid rgba(0,0,0,.10);color:#1c4450}
+
+  </style>
+</head>
+
+<body>
+  <div class="topbar">
+    <button class="iconbtn" title="Menu" aria-label="Menu" onclick="toast &amp;&amp; toast(&#39;Menu (demo). Use as abas para navegar.&#39;);">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+        <path d="M4 6h16M4 12h16M4 18h12" stroke="white" stroke-width="2.4" stroke-linecap="round"></path>
+      </svg>
+    </button>
+    <div class="brand">CY</div>
+    <div style="display:flex;gap:10px">
+      <button class="iconbtn" title="Dica" aria-label="Dica" onclick="toast &amp;&amp; toast(&#39;Dica: Inspeção → Avarias → Relatórios. Interface no padrão VSC.&#39;);">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <path d="M12 18h.01M10 10a2 2 0 1 1 3 1.7c-.7.5-1 1-1 2.3v.5" stroke="white" stroke-width="2.4" stroke-linecap="round"></path>
+          <path d="M12 22C6.5 22 2 17.5 2 12S6.5 2 12 2s10 4.5 10 10-4.5 10-10 10Z" stroke="white" stroke-width="2.2"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="card">
+      <div class="cardHeader">
+        <h1 class="title">Damage</h1>
+
+        <div class="tabs" id="nav" role="tablist" aria-label="Damage Tabs">
+          <a class="tab active" data-page="inspect" role="tab" aria-selected="true"><span class="pill"></span> Inspeção</a>
+          <a class="tab" data-page="avarias" role="tab" aria-selected="false"><span class="pill"></span> Avarias</a>
+          <a class="tab" data-page="relatorios" role="tab" aria-selected="false"><span class="pill"></span> Relatórios</a>
+        </div>
+
+      </div>
+
+      <div class="content">
+<div class="top">
+        <div>
+          <h1 id="pageTitle">CY | Inspect</h1>
+          <div class="sub" id="pageSub">Registrar inspeção e gerar avaria.</div>
+        </div>
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <button class="btn" id="seed">🧪 </button>
+          <button class="btn" id="reset">♻️ Reset</button>
+        </div>
+      </div>
+
+      <!-- INSPECT -->
+      <section class="page active" id="page-inspect">
+        <div class="grid">
+          <section class="card">
+            <h2>
+              <span>Registro de Inspeção</span>
+              <span class="tag info"><span class="dot"></span><span class="mono">INSP</span></span>
+            </h2>
+            <div class="body">
+              <div class="row">
+                <div>
+                  <label>CNTR</label>
+                  <input id="i_cntr" placeholder="ABCD1234567">
+                </div>
+                <div>
+                  <label>Tipo</label>
+                  <select id="i_tipo">
+                    <option>GATE IN</option>
+                    <option>GATE OUT</option>
+                    <option>PÁTIO</option>
+                    <option>TRANSFERÊNCIA</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="row">
+                <div>
+                  <label>Vínculo (BL/CE/OS)</label>
+                  <input id="i_vinc" placeholder="CE 2026/000123 | BL: ...">
+                </div>
+                <div>
+                  <label>Responsável</label>
+                  <input id="i_resp" placeholder="Inspetor 01">
+                </div>
+              </div>
+
+              <div class="row">
+                <div>
+                  <label>Severidade</label>
+                  <select id="i_sev">
+                    <option>BAIXA</option>
+                    <option>MÉDIA</option>
+                    <option>ALTA</option>
+                    <option>CRÍTICA</option>
+                  </select>
+                </div>
+                <div>
+                  <label>Status</label>
+                  <select id="i_status">
+                    <option>RASCUNHO</option>
+                    <option>EM ANÁLISE</option>
+                    <option>ENCERRADA</option>
+                  </select>
+                </div>
+              </div>
+
+              <label>Descrição / Observações</label>
+              <textarea id="i_desc" placeholder="Resumo: área, tipo de dano, risco e decisão operacional."></textarea>
+
+              <div class="actions">
+                <button class="btn primary" id="i_save">💾 Salvar inspeção</button>
+                <button class="btn" id="i_gen">🛠️ Gerar avaria</button>
+                <button class="btn" id="i_new">➕ Nova</button>
+              </div>
+            </div>
+          </section>
+
+          <section class="card">
+            <h2>
+              <span>Inspeções Recentes</span>
+              <span class="tag"><span class="dot" style="background:rgba(15,23,42,.35)"></span>clique para ver</span>
+            </h2>
+            <div class="body">
+              <div class="row">
+                <div>
+                  <label>Filtro CNTR</label>
+                  <input id="i_fcntr" placeholder="ABCD...">
+                </div>
+                <div>
+                  <label>Filtro Status</label>
+                  <select id="i_fstatus">
+                    <option value="">Todos</option>
+                    <option>RASCUNHO</option>
+                    <option>EM ANÁLISE</option>
+                    <option>ENCERRADA</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="actions" style="margin-top:10px;">
+                <button class="btn" id="i_apply">🔎 Aplicar</button>
+                <button class="btn" id="i_clear">🧹 Limpar</button>
+              </div>
+
+              <div style="margin-top:12px;" class="list" id="i_list"><div class="item" style="cursor:default"><div style="color:rgba(71,85,105,.95)">Nenhum registro.</div><div class="mono">—</div></div></div>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <!-- AVARIAS -->
+      <section class="page" id="page-avarias">
+        <div class="grid">
+          <section class="card">
+            <h2>
+              <span>Registro de Avaria</span>
+              <span class="tag warn"><span class="dot"></span><span class="mono">AVA</span></span>
+            </h2>
+            <div class="body">
+              <div class="row">
+                <div>
+                  <label>CNTR</label>
+                  <input id="a_cntr" placeholder="ABCD1234567">
+                </div>
+                <div>
+                  <label>Origem</label>
+                  <select id="a_origem">
+                    <option>VISTORIA</option>
+                    <option>GATE</option>
+                    <option>PÁTIO</option>
+                    <option>EQUIPAMENTO</option>
+                    <option>TERCEIRO</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="row">
+                <div>
+                  <label>Severidade</label>
+                  <select id="a_sev">
+                    <option>BAIXA</option>
+                    <option>MÉDIA</option>
+                    <option>ALTA</option>
+                    <option>CRÍTICA</option>
+                  </select>
+                </div>
+                <div>
+                  <label>Status</label>
+                  <select id="a_status">
+                    <option>ABERTA</option>
+                    <option>EM ANÁLISE</option>
+                    <option>EM REPARO</option>
+                    <option>ENCERRADA</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="row">
+                <div>
+                  <label>Área</label>
+                  <select id="a_area">
+                    <option>PORTAS</option>
+                    <option>LATERAL ESQ</option>
+                    <option>LATERAL DIR</option>
+                    <option>FRENTE</option>
+                    <option>TETO</option>
+                    <option>PISO</option>
+                    <option>CANTONEIRAS</option>
+                  </select>
+                </div>
+                <div>
+                  <label>Tipo</label>
+                  <select id="a_tipo">
+                    <option>AMASSADO</option>
+                    <option>CORTE / PERFURAÇÃO</option>
+                    <option>FERRUGEM</option>
+                    <option>TRINCA</option>
+                    <option>DESALINHAMENTO</option>
+                    <option>OUTRA</option>
+                  </select>
+                </div>
+              </div>
+
+              <label>Descrição / Decisão</label>
+              <textarea id="a_desc" placeholder="Descreva a avaria e decisão: hold, repair, liberação etc."></textarea>
+
+              <label>Fotos / Evidências</label>
+              <div class="uploadBox">
+                <div>
+                  <div style="font-weight:900;">📷 Anexar fotos</div>
+                  <small>Demo: salva apenas o nome do arquivo.</small>
+                </div>
+                <input id="a_files" type="file" multiple="" accept="image/*">
+              </div>
+              <div class="chips" id="a_chips"><span class="tag"><span class="dot" style="background:rgba(15,23,42,.35)"></span>sem fotos</span></div>
+
+              <div class="actions">
+                <button class="btn primary" id="a_save">💾 Salvar avaria</button>
+                <button class="btn" id="a_new">➕ Nova</button>
+              </div>
+            </div>
+          </section>
+
+          <section class="card">
+            <h2>
+              <span>Avarias Recentes</span>
+              <span class="tag"><span class="dot" style="background:rgba(15,23,42,.35)"></span>clique para ver</span>
+            </h2>
+            <div class="body">
+              <div class="row">
+                <div>
+                  <label>Filtro CNTR</label>
+                  <input id="a_fcntr" placeholder="ABCD...">
+                </div>
+                <div>
+                  <label>Filtro Status</label>
+                  <select id="a_fstatus">
+                    <option value="">Todos</option>
+                    <option>ABERTA</option>
+                    <option>EM ANÁLISE</option>
+                    <option>EM REPARO</option>
+                    <option>ENCERRADA</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="row">
+                <div>
+                  <label>Filtro Severidade</label>
+                  <select id="a_fsev">
+                    <option value="">Todas</option>
+                    <option>BAIXA</option>
+                    <option>MÉDIA</option>
+                    <option>ALTA</option>
+                    <option>CRÍTICA</option>
+                  </select>
+                </div>
+                <div>
+                  <label>Filtro Origem</label>
+                  <select id="a_forigem">
+                    <option value="">Todas</option>
+                    <option>VISTORIA</option>
+                    <option>GATE</option>
+                    <option>PÁTIO</option>
+                    <option>EQUIPAMENTO</option>
+                    <option>TERCEIRO</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="actions" style="margin-top:10px;">
+                <button class="btn" id="a_apply">🔎 Aplicar</button>
+                <button class="btn" id="a_clear">🧹 Limpar</button>
+              </div>
+
+              <div style="margin-top:12px;" class="list" id="a_list">
+        <div class="item" data-id="AVA-20260106-091743">
+          <div>
+            <div><b>MAEU3452334</b> <span class="mono" style="opacity:.70">• AVA-20260106-091743</span></div>
+            <div style="margin-top:6px; display:flex; gap:8px; flex-wrap:wrap;">
+              <span class="tag warn"><span class="dot"></span>MÉDIA</span> <span class="tag info"><span class="dot"></span>EM REPARO</span>
+              <span class="tag"><span class="dot" style="background:rgba(15,23,42,.35)"></span>PISO</span>
+              <span class="tag"><span class="dot" style="background:rgba(37,99,235,.85)"></span>VISTORIA</span>
+              <span class="tag"><span class="dot" style="background:rgba(16,185,129,.85)"></span>📷 0 foto(s)</span>
+            </div>
+          </div>
+          <div class="mono" style="opacity:.60">06/01/2026 09:17</div>
+        </div></div>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <!-- RELATORIOS -->
+      <section class="page" id="page-relatorios">
+        <div class="card">
+          <h2>Relatórios (placeholder)</h2>
+          <div class="body">
+            <div class="hint">Espaço para KPIs e exportações (CSV/PDF) em uma próxima iteração.</div>
+          </div>
+        </div>
+      </section>
       </div>
     </div>
-  </div>
-  <div class="nav">
-    <a href="file:///C:/Users/HxTos/Downloads/index.html">Índice</a>
-    <a href="file:///C:/Users/HxTos/Downloads/virtual-yard-config.html">Configuração</a>
-    <a href="file:///C:/Users/HxTos/Downloads/virtual-yard-dashboard.html">Painel Virtual</a>
-    <a href="file:///C:/Users/HxTos/Downloads/ordem-transferencia.html">Ordem de Transferência</a>
-    <a href="file:///C:/Users/HxTos/Downloads/smart-decking-multisite.html">Smart Decking</a>
-  </div>
-</div>
 
-  <div class="container">
-    
-<div class="section">
-  <div class="h"><h2>Índice das Telas do Virtual Yard</h2><span class="tag">Rascunhos</span></div>
-  <div class="grid cols-2">
-    <div class="panel">
-      <h3>1) Configuração de Sites &amp; Blocos Virtuais</h3>
-      <p class="subtitle">Cadastro de sites, criação de Blocos Virtuais e mapeamento para blocos físicos 1..N.</p>
-      <a class="btn" href="file:///C:/Users/HxTos/Downloads/virtual-yard-config.html">Abrir tela</a>
-    </div>
-    <div class="panel">
-      <h3>2) Painel Virtual do Pátio (Torre)</h3>
-      <p class="subtitle">KPIs agregados, mapa lógico, semáforos, heatmap por site e ações rápidas.</p>
-      <a class="btn" href="file:///C:/Users/HxTos/Downloads/virtual-yard-dashboard.html">Abrir painel</a>
-    </div>
-    <div class="panel">
-      <h3>3) Ordem de Transferência Inter-site</h3>
-      <p class="subtitle">Geração de job de transferência, janelas de gate e checklist de pré-condições.</p>
-      <a class="btn" href="file:///C:/Users/HxTos/Downloads/ordem-transferencia.html">Abrir ordem</a>
-    </div>
-    <div class="panel">
-      <h3>4) Smart Decking — Modo Multi-Site</h3>
-      <p class="subtitle">Ranking de destinos físicos para um Bloco Virtual, com breakdown de score.</p>
-      <a class="btn" href="file:///C:/Users/HxTos/Downloads/smart-decking-multisite.html">Abrir motor</a>
-    </div>
+    <!-- Toast container (kept compatible if Damage JS uses it) -->
+    <div id="toast" class="toast" role="status" aria-live="polite">OK</div>
   </div>
-</div>
 
-  </div>
-  <div class="footer">Protótipo visual • Tema escuro (Montserrat) • Gerado em 2025-08-27 14:40</div>
+  <script>
+const KEY="CY_INSPECT_AVARIAS_WHITE_UI_v1";
+    const $=(q)=>document.querySelector(q);
+    const $$=(q)=>Array.from(document.querySelectorAll(q));
+    let S=load();
+
+    function load(){
+      try{
+        const raw=localStorage.getItem(KEY);
+        return raw ? Object.assign({inspections:[],damages:[]}, JSON.parse(raw)) : {inspections:[],damages:[]};
+      }catch(e){ return {inspections:[],damages:[]}; }
+    }
+    function persist(){
+      localStorage.setItem(KEY, JSON.stringify(S));
+      $("#pillInspect").textContent=S.inspections.length;
+      $("#pillAvarias").textContent=S.damages.length;
+    }
+    function uid(prefix){
+      const d=new Date(); const p=n=>String(n).padStart(2,"0");
+      return `${prefix}-${d.getFullYear()}${p(d.getMonth()+1)}${p(d.getDate())}-${p(d.getHours())}${p(d.getMinutes())}${p(d.getSeconds())}`;
+    }
+    function fmt(iso){
+      const d=new Date(iso); const p=n=>String(n).padStart(2,"0");
+      return `${p(d.getDate())}/${p(d.getMonth()+1)}/${d.getFullYear()} ${p(d.getHours())}:${p(d.getMinutes())}`;
+    }
+    function tagSev(sev){
+      const cls=sev==="BAIXA"?"ok":(sev==="MÉDIA"?"warn":"bad");
+      return `<span class="tag ${cls}"><span class="dot"></span>${sev}</span>`;
+    }
+    function tagStatus(status){return `<span class="tag info"><span class="dot"></span>${status}</span>`;}
+
+    function setPage(page){
+      $$(".page").forEach(p=>p.classList.remove("active"));
+      $("#page-"+page).classList.add("active");
+      $$("#nav a").forEach(a=>a.classList.remove("active"));
+      $(`#nav a[data-page="${page}"]`).classList.add("active");
+
+      const meta={
+        inspect:["CY | Inspect","Registrar inspeção e gerar avaria."],
+        avarias:["CY | Avarias","Registrar avaria com fotos/evidências e consultar lista."],
+        relatorios:["CY | Relatórios","Placeholder para KPIs/exportações."]
+      };
+      $("#pageTitle").textContent=meta[page][0];
+      $("#pageSub").textContent=meta[page][1];
+      if(page==="inspect") renderInspect();
+      if(page==="avarias") renderAvarias();
+    }
+    $$("#nav a").forEach(a=>a.addEventListener("click",()=>setPage(a.getAttribute("data-page"))));
+
+    // Inspect
+    function resetInspect(){
+      $("#i_cntr").value=""; $("#i_tipo").value="GATE IN"; $("#i_vinc").value="";
+      $("#i_resp").value=""; $("#i_sev").value="BAIXA"; $("#i_status").value="RASCUNHO"; $("#i_desc").value="";
+    }
+    function saveInspect(){
+      const cntr=$("#i_cntr").value.trim().toUpperCase();
+      if(!cntr){ alert("Informe o CNTR."); return; }
+      S.inspections.unshift({
+        id:uid("INSP"), cntr, tipo:$("#i_tipo").value, vinc:$("#i_vinc").value.trim(),
+        resp:$("#i_resp").value.trim(), sev:$("#i_sev").value, status:$("#i_status").value,
+        desc:$("#i_desc").value.trim(), createdAt:new Date().toISOString()
+      });
+      persist(); renderInspect(); resetInspect(); alert("Inspeção salva (demo).");
+    }
+    function renderInspect(){
+      const fcntr=$("#i_fcntr").value.trim().toUpperCase();
+      const fstatus=$("#i_fstatus").value;
+
+      const list=S.inspections
+        .filter(x=>!fcntr||x.cntr.includes(fcntr))
+        .filter(x=>!fstatus||x.status===fstatus)
+        .sort((a,b)=>new Date(b.createdAt)-new Date(a.createdAt));
+
+      const el=$("#i_list");
+      if(!list.length){
+        el.innerHTML=`<div class="item" style="cursor:default"><div style="color:rgba(71,85,105,.95)">Nenhum registro.</div><div class="mono">—</div></div>`;
+        return;
+      }
+      el.innerHTML=list.map(x=>`
+        <div class="item" data-id="${x.id}">
+          <div>
+            <div><b>${x.cntr}</b> <span class="mono" style="opacity:.70">• ${x.id}</span></div>
+            <div style="margin-top:6px; display:flex; gap:8px; flex-wrap:wrap;">
+              ${tagSev(x.sev)} ${tagStatus(x.status)}
+              <span class="tag"><span class="dot" style="background:rgba(15,23,42,.35)"></span>${x.tipo}</span>
+            </div>
+          </div>
+          <div class="mono" style="opacity:.60">${fmt(x.createdAt)}</div>
+        </div>`).join("");
+
+      el.querySelectorAll(".item[data-id]").forEach(r=>r.addEventListener("click",()=>{
+        const x=S.inspections.find(z=>z.id===r.getAttribute("data-id"));
+        alert(
+          `Inspeção ${x.id}\nCNTR: ${x.cntr}\nTipo: ${x.tipo}\nStatus: ${x.status}\nSeveridade: ${x.sev}\n` +
+          `Vínculo: ${x.vinc || "—"}\nResp: ${x.resp || "—"}\n\nDescrição:\n${x.desc || "—"}`
+        );
+      }));
+    }
+    function genAvariaFromInspect(){
+      const cntr=$("#i_cntr").value.trim().toUpperCase();
+      if(!cntr){ alert("Informe o CNTR antes de gerar avaria."); return; }
+      setPage("avarias");
+      $("#a_cntr").value=cntr;
+      $("#a_origem").value="VISTORIA";
+      $("#a_sev").value=$("#i_sev").value;
+      $("#a_status").value="ABERTA";
+      $("#a_area").value="PORTAS";
+      $("#a_tipo").value=(($("#i_sev").value==="CRÍTICA"||$("#i_sev").value==="ALTA") ? "DESALINHAMENTO" : "AMASSADO");
+      $("#a_desc").value=`Gerado a partir de Inspect. Observações: ${($("#i_desc").value||"—")}`;
+      avDraftPhotos=[]; renderChips();
+    }
+    $("#i_save").addEventListener("click", saveInspect);
+    $("#i_gen").addEventListener("click", genAvariaFromInspect);
+    $("#i_new").addEventListener("click", resetInspect);
+    $("#i_apply").addEventListener("click", renderInspect);
+    $("#i_clear").addEventListener("click", ()=>{ $("#i_fcntr").value=""; $("#i_fstatus").value=""; renderInspect(); });
+
+    // Avarias (with photos)
+    let avDraftPhotos=[];
+    function renderChips(){
+      const el=$("#a_chips"); el.innerHTML="";
+      if(!avDraftPhotos.length){
+        el.innerHTML=`<span class="tag"><span class="dot" style="background:rgba(15,23,42,.35)"></span>sem fotos</span>`;
+        return;
+      }
+      avDraftPhotos.forEach(name=>{
+        const chip=document.createElement("span");
+        chip.className="chip";
+        chip.innerHTML=`📷 ${name} <span class="x">✕</span>`;
+        chip.title="Clique para remover";
+        chip.addEventListener("click",()=>{ avDraftPhotos=avDraftPhotos.filter(n=>n!==name); renderChips(); });
+        el.appendChild(chip);
+      });
+    }
+    $("#a_files").addEventListener("change",(e)=>{
+      Array.from(e.target.files||[]).forEach(f=>{ if(!avDraftPhotos.includes(f.name)) avDraftPhotos.push(f.name); });
+      e.target.value=""; renderChips();
+    });
+
+    function resetAvaria(){
+      $("#a_cntr").value=""; $("#a_origem").value="VISTORIA"; $("#a_sev").value="MÉDIA"; $("#a_status").value="ABERTA";
+      $("#a_area").value="PORTAS"; $("#a_tipo").value="AMASSADO"; $("#a_desc").value="";
+      avDraftPhotos=[]; renderChips();
+    }
+    function saveAvaria(){
+      const cntr=$("#a_cntr").value.trim().toUpperCase();
+      if(!cntr){ alert("Informe o CNTR."); return; }
+      S.damages.unshift({
+        id:uid("AVA"), cntr,
+        origem:$("#a_origem").value, sev:$("#a_sev").value, status:$("#a_status").value,
+        area:$("#a_area").value, tipo:$("#a_tipo").value, desc:$("#a_desc").value.trim(),
+        photos:avDraftPhotos.slice(), createdAt:new Date().toISOString()
+      });
+      persist(); renderAvarias(); resetAvaria(); alert("Avaria salva (demo).");
+    }
+    function renderAvarias(){
+      const fcntr=$("#a_fcntr").value.trim().toUpperCase();
+      const fstatus=$("#a_fstatus").value;
+      const fsev=$("#a_fsev").value;
+      const forigem=$("#a_forigem").value;
+
+      const list=S.damages
+        .filter(x=>!fcntr||x.cntr.includes(fcntr))
+        .filter(x=>!fstatus||x.status===fstatus)
+        .filter(x=>!fsev||x.sev===fsev)
+        .filter(x=>!forigem||x.origem===forigem)
+        .sort((a,b)=>new Date(b.createdAt)-new Date(a.createdAt));
+
+      const el=$("#a_list");
+      if(!list.length){
+        el.innerHTML=`<div class="item" style="cursor:default"><div style="color:rgba(71,85,105,.95)">Nenhum registro.</div><div class="mono">—</div></div>`;
+        return;
+      }
+
+      el.innerHTML=list.map(x=>`
+        <div class="item" data-id="${x.id}">
+          <div>
+            <div><b>${x.cntr}</b> <span class="mono" style="opacity:.70">• ${x.id}</span></div>
+            <div style="margin-top:6px; display:flex; gap:8px; flex-wrap:wrap;">
+              ${tagSev(x.sev)} ${tagStatus(x.status)}
+              <span class="tag"><span class="dot" style="background:rgba(15,23,42,.35)"></span>${x.area}</span>
+              <span class="tag"><span class="dot" style="background:rgba(37,99,235,.85)"></span>${x.origem}</span>
+              <span class="tag"><span class="dot" style="background:rgba(16,185,129,.85)"></span>📷 ${(x.photos?.length||0)} foto(s)</span>
+            </div>
+          </div>
+          <div class="mono" style="opacity:.60">${fmt(x.createdAt)}</div>
+        </div>`).join("");
+
+      el.querySelectorAll(".item[data-id]").forEach(r=>r.addEventListener("click",()=>{
+        const x=S.damages.find(z=>z.id===r.getAttribute("data-id"));
+        alert(
+          `Avaria ${x.id}\nCNTR: ${x.cntr}\nOrigem: ${x.origem}\nStatus: ${x.status}\nSeveridade: ${x.sev}\n` +
+          `Área: ${x.area}\nTipo: ${x.tipo}\nFotos: ${(x.photos&&x.photos.length)?x.photos.join(", "):"—"}\n\nDescrição:\n${x.desc||"—"}`
+        );
+      }));
+    }
+
+    $("#a_save").addEventListener("click", saveAvaria);
+    $("#a_new").addEventListener("click", resetAvaria);
+    $("#a_apply").addEventListener("click", renderAvarias);
+    $("#a_clear").addEventListener("click", ()=>{ $("#a_fcntr").value=""; $("#a_fstatus").value=""; $("#a_fsev").value=""; $("#a_forigem").value=""; renderAvarias(); });
+
+    // Seed/Reset
+    $("#seed").addEventListener("click", ()=>{
+      const now=Date.now();
+      S.inspections=[
+        {id:"INSP-20260105-151200",cntr:"ABCD1234567",tipo:"GATE IN",vinc:"CE 2026/000123",resp:"Inspetor 01",sev:"BAIXA",status:"ENCERRADA",desc:"Sem observações relevantes.",createdAt:new Date(now-3600e3).toISOString()},
+        {id:"INSP-20260105-141020",cntr:"TGHU0099887",tipo:"TRANSFERÊNCIA",vinc:"OS TRF-44821",resp:"Inspetor 03",sev:"ALTA",status:"EM ANÁLISE",desc:"Portas desalinhadas. Recomendar hold e repair.",createdAt:new Date(now-8600e3).toISOString()},
+      ];
+      S.damages=[
+        {id:"AVA-20260105-155500",cntr:"TGHU0099887",origem:"VISTORIA",sev:"ALTA",status:"EM ANÁLISE",area:"PORTAS",tipo:"DESALINHAMENTO",
+         desc:"Gerado após inspeção. Avaliar hold + encaminhar repair.",photos:["doors_alignment.png","seal_area_zoom.jpg"],createdAt:new Date(now-2200e3).toISOString()}
+      ];
+      persist(); renderInspect(); renderAvarias(); alert("Demo populada.");
+    });
+
+    $("#reset").addEventListener("click", ()=>{
+      localStorage.removeItem(KEY);
+      S={inspections:[],damages:[]};
+      persist(); resetInspect(); resetAvaria(); renderChips(); renderInspect(); renderAvarias(); alert("Reset concluído.");
+    });
+
+    // Init
+    persist(); resetInspect(); resetAvaria(); renderChips();
+    renderInspect(); renderAvarias(); setPage("inspect");
+
+// A11y: sync aria-selected for tab anchors
+    (function(){
+      const nav = document.getElementById("nav");
+      if(!nav) return;
+      nav.addEventListener("click", (e)=>{
+        const a = e.target.closest("a[data-page]");
+        if(!a) return;
+        nav.querySelectorAll("a[data-page]").forEach(x=>x.setAttribute("aria-selected", x===a ? "true" : "false"));
+      });
+    })();
+  </script>
+
 
 </body></html>
