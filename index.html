@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0070)file:///C:/Users/HxTos/Downloads/damage_based_on_vsc_model_mobile.html -->
+<!-- saved from url=(0059)file:///C:/Users/HxTos/Downloads/damage_web_no_reports.html -->
 <html lang="pt-BR"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   
   <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -340,66 +340,7 @@
     /* If a button has no variant, treat as ghost */
     .btn:not(.primary):not(.light):not(.ghost){background:#f6f7f9;border:1px solid rgba(0,0,0,.10);color:#1c4450}
 
-  
-/* =========================================================
-   MOBILE OPTIMIZATIONS (<= 720px)
-   ========================================================= */
-@media (max-width: 720px){
-  body{overflow:auto;}
-  .topbar{
-    position:sticky;
-    top:0;
-    z-index:50;
-    padding:10px 12px;
-  }
-  .wrap{padding:12px !important;}
-  .card{border-radius:16px !important;}
-  .cardHeader{padding:12px 12px 10px !important; gap:10px !important;}
-  .title{font-size:18px !important; line-height:1.1 !important;}
-
-  /* Tabs: horizontal scroll */
-  .tabs{
-    width:100%;
-    overflow-x:auto;
-    -webkit-overflow-scrolling:touch;
-    scrollbar-width:none;
-    display:flex !important;
-    gap:8px !important;
-    padding-bottom:2px;
-  }
-  .tabs::-webkit-scrollbar{display:none;}
-  .tab{white-space:nowrap; flex:0 0 auto; padding:9px 12px !important; border-radius:999px !important;}
-
-  .content{padding:12px !important;}
-
-  /* Damage layouts: stack */
-  .grid{grid-template-columns:1fr !important; gap:12px !important;}
-  .row{grid-template-columns:1fr !important; gap:10px !important;}
-
-  /* Cards */
-  .content .card h2{padding:12px 12px 10px !important; font-size:14px !important;}
-  .content .body{padding:12px !important;}
-
-  /* Forms */
-  input, select, textarea{padding:11px 12px !important; border-radius:12px !important; font-size:14px !important;}
-  label{font-size:12px !important;}
-
-  /* Buttons */
-  .actions{gap:10px !important;}
-  .btn{width:100%; min-width:unset !important; padding:12px 14px !important; border-radius:12px !important; font-size:14px !important;}
-
-  /* List items */
-  .list .item{grid-template-columns:1fr !important; gap:8px !important;}
-}
-
-/* Extra small phones */
-@media (max-width: 420px){
-  .brand{min-width:44px}
-  .iconbtn{width:44px;height:44px}
-  .title{font-size:17px !important;}
-}
-
-</style>
+  </style>
 </head>
 
 <body>
@@ -426,18 +367,17 @@
         <h1 class="title">Damage</h1>
 
         <div class="tabs" id="nav" role="tablist" aria-label="Damage Tabs">
-          <a class="tab active" data-page="inspect" role="tab" aria-selected="true"><span class="pill"></span> Inspeção</a>
-          <a class="tab" data-page="avarias" role="tab" aria-selected="false"><span class="pill"></span> Avarias</a>
-          <a class="tab" data-page="relatorios" role="tab" aria-selected="false"><span class="pill"></span> Relatórios</a>
-        </div>
+          <a class="tab" data-page="inspect" role="tab" aria-selected="true"><span class="pill"></span> Inspeção</a>
+          <a class="tab active" data-page="avarias" role="tab" aria-selected="false"><span class="pill"></span> Avarias</a>
+</div>
 
       </div>
 
       <div class="content">
 <div class="top">
         <div>
-          <h1 id="pageTitle">CY | Inspect</h1>
-          <div class="sub" id="pageSub">Registrar inspeção e gerar avaria.</div>
+          <h1 id="pageTitle">CY | Avarias</h1>
+          <div class="sub" id="pageSub">Registrar avaria com fotos/evidências e consultar lista.</div>
         </div>
         <div style="display:flex; gap:10px; flex-wrap:wrap;">
           <button class="btn" id="seed">🧪 </button>
@@ -446,7 +386,7 @@
       </div>
 
       <!-- INSPECT -->
-      <section class="page active" id="page-inspect">
+      <section class="page" id="page-inspect">
         <div class="grid">
           <section class="card">
             <h2>
@@ -539,24 +479,14 @@
                 <button class="btn" id="i_clear">🧹 Limpar</button>
               </div>
 
-              <div style="margin-top:12px;" class="list" id="i_list">
-        <div class="item" data-id="INSP-20260105-162832">
-          <div>
-            <div><b>MSCU3452345</b> <span class="mono" style="opacity:.70">• INSP-20260105-162832</span></div>
-            <div style="margin-top:6px; display:flex; gap:8px; flex-wrap:wrap;">
-              <span class="tag ok"><span class="dot"></span>BAIXA</span> <span class="tag info"><span class="dot"></span>ENCERRADA</span>
-              <span class="tag"><span class="dot" style="background:rgba(15,23,42,.35)"></span>GATE IN</span>
-            </div>
-          </div>
-          <div class="mono" style="opacity:.60">05/01/2026 16:28</div>
-        </div></div>
+              <div style="margin-top:12px;" class="list" id="i_list"><div class="item" style="cursor:default"><div style="color:rgba(71,85,105,.95)">Nenhum registro.</div><div class="mono">—</div></div></div>
             </div>
           </section>
         </div>
       </section>
 
       <!-- AVARIAS -->
-      <section class="page" id="page-avarias">
+      <section class="page active" id="page-avarias">
         <div class="grid">
           <section class="card">
             <h2>
@@ -700,22 +630,36 @@
                 <button class="btn" id="a_clear">🧹 Limpar</button>
               </div>
 
-              <div style="margin-top:12px;" class="list" id="a_list"><div class="item" style="cursor:default"><div style="color:rgba(71,85,105,.95)">Nenhum registro.</div><div class="mono">—</div></div></div>
+              <div style="margin-top:12px;" class="list" id="a_list">
+        <div class="item" data-id="AVA-20260106-155348">
+          <div>
+            <div><b>MAEU3456778</b> <span class="mono" style="opacity:.70">• AVA-20260106-155348</span></div>
+            <div style="margin-top:6px; display:flex; gap:8px; flex-wrap:wrap;">
+              <span class="tag bad"><span class="dot"></span>ALTA</span> <span class="tag info"><span class="dot"></span>EM ANÁLISE</span>
+              <span class="tag"><span class="dot" style="background:rgba(15,23,42,.35)"></span>TETO</span>
+              <span class="tag"><span class="dot" style="background:rgba(37,99,235,.85)"></span>GATE</span>
+              <span class="tag"><span class="dot" style="background:rgba(16,185,129,.85)"></span>📷 0 foto(s)</span>
+            </div>
+          </div>
+          <div class="mono" style="opacity:.60">06/01/2026 15:53</div>
+        </div>
+        <div class="item" data-id="AVA-20260106-091743">
+          <div>
+            <div><b>MAEU3452334</b> <span class="mono" style="opacity:.70">• AVA-20260106-091743</span></div>
+            <div style="margin-top:6px; display:flex; gap:8px; flex-wrap:wrap;">
+              <span class="tag warn"><span class="dot"></span>MÉDIA</span> <span class="tag info"><span class="dot"></span>EM REPARO</span>
+              <span class="tag"><span class="dot" style="background:rgba(15,23,42,.35)"></span>PISO</span>
+              <span class="tag"><span class="dot" style="background:rgba(37,99,235,.85)"></span>VISTORIA</span>
+              <span class="tag"><span class="dot" style="background:rgba(16,185,129,.85)"></span>📷 0 foto(s)</span>
+            </div>
+          </div>
+          <div class="mono" style="opacity:.60">06/01/2026 09:17</div>
+        </div></div>
             </div>
           </section>
         </div>
       </section>
-
-      <!-- RELATORIOS -->
-      <section class="page" id="page-relatorios">
-        <div class="card">
-          <h2>Relatórios (placeholder)</h2>
-          <div class="body">
-            <div class="hint">Espaço para KPIs e exportações (CSV/PDF) em uma próxima iteração.</div>
-          </div>
-        </div>
-      </section>
-      </div>
+</div>
     </div>
 
     <!-- Toast container (kept compatible if Damage JS uses it) -->
@@ -762,8 +706,7 @@ const KEY="CY_INSPECT_AVARIAS_WHITE_UI_v1";
       const meta={
         inspect:["CY | Inspect","Registrar inspeção e gerar avaria."],
         avarias:["CY | Avarias","Registrar avaria com fotos/evidências e consultar lista."],
-        relatorios:["CY | Relatórios","Placeholder para KPIs/exportações."]
-      };
+};
       $("#pageTitle").textContent=meta[page][0];
       $("#pageSub").textContent=meta[page][1];
       if(page==="inspect") renderInspect();
