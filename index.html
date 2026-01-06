@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0079)file:///C:/Users/HxTos/Downloads/damage_based_on_vsc_model_no_popular_demo.html -->
+<!-- saved from url=(0070)file:///C:/Users/HxTos/Downloads/damage_based_on_vsc_model_mobile.html -->
 <html lang="pt-BR"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   
   <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -340,7 +340,66 @@
     /* If a button has no variant, treat as ghost */
     .btn:not(.primary):not(.light):not(.ghost){background:#f6f7f9;border:1px solid rgba(0,0,0,.10);color:#1c4450}
 
-  </style>
+  
+/* =========================================================
+   MOBILE OPTIMIZATIONS (<= 720px)
+   ========================================================= */
+@media (max-width: 720px){
+  body{overflow:auto;}
+  .topbar{
+    position:sticky;
+    top:0;
+    z-index:50;
+    padding:10px 12px;
+  }
+  .wrap{padding:12px !important;}
+  .card{border-radius:16px !important;}
+  .cardHeader{padding:12px 12px 10px !important; gap:10px !important;}
+  .title{font-size:18px !important; line-height:1.1 !important;}
+
+  /* Tabs: horizontal scroll */
+  .tabs{
+    width:100%;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+    display:flex !important;
+    gap:8px !important;
+    padding-bottom:2px;
+  }
+  .tabs::-webkit-scrollbar{display:none;}
+  .tab{white-space:nowrap; flex:0 0 auto; padding:9px 12px !important; border-radius:999px !important;}
+
+  .content{padding:12px !important;}
+
+  /* Damage layouts: stack */
+  .grid{grid-template-columns:1fr !important; gap:12px !important;}
+  .row{grid-template-columns:1fr !important; gap:10px !important;}
+
+  /* Cards */
+  .content .card h2{padding:12px 12px 10px !important; font-size:14px !important;}
+  .content .body{padding:12px !important;}
+
+  /* Forms */
+  input, select, textarea{padding:11px 12px !important; border-radius:12px !important; font-size:14px !important;}
+  label{font-size:12px !important;}
+
+  /* Buttons */
+  .actions{gap:10px !important;}
+  .btn{width:100%; min-width:unset !important; padding:12px 14px !important; border-radius:12px !important; font-size:14px !important;}
+
+  /* List items */
+  .list .item{grid-template-columns:1fr !important; gap:8px !important;}
+}
+
+/* Extra small phones */
+@media (max-width: 420px){
+  .brand{min-width:44px}
+  .iconbtn{width:44px;height:44px}
+  .title{font-size:17px !important;}
+}
+
+</style>
 </head>
 
 <body>
@@ -480,7 +539,17 @@
                 <button class="btn" id="i_clear">🧹 Limpar</button>
               </div>
 
-              <div style="margin-top:12px;" class="list" id="i_list"><div class="item" style="cursor:default"><div style="color:rgba(71,85,105,.95)">Nenhum registro.</div><div class="mono">—</div></div></div>
+              <div style="margin-top:12px;" class="list" id="i_list">
+        <div class="item" data-id="INSP-20260105-162832">
+          <div>
+            <div><b>MSCU3452345</b> <span class="mono" style="opacity:.70">• INSP-20260105-162832</span></div>
+            <div style="margin-top:6px; display:flex; gap:8px; flex-wrap:wrap;">
+              <span class="tag ok"><span class="dot"></span>BAIXA</span> <span class="tag info"><span class="dot"></span>ENCERRADA</span>
+              <span class="tag"><span class="dot" style="background:rgba(15,23,42,.35)"></span>GATE IN</span>
+            </div>
+          </div>
+          <div class="mono" style="opacity:.60">05/01/2026 16:28</div>
+        </div></div>
             </div>
           </section>
         </div>
@@ -631,19 +700,7 @@
                 <button class="btn" id="a_clear">🧹 Limpar</button>
               </div>
 
-              <div style="margin-top:12px;" class="list" id="a_list">
-        <div class="item" data-id="AVA-20260106-091743">
-          <div>
-            <div><b>MAEU3452334</b> <span class="mono" style="opacity:.70">• AVA-20260106-091743</span></div>
-            <div style="margin-top:6px; display:flex; gap:8px; flex-wrap:wrap;">
-              <span class="tag warn"><span class="dot"></span>MÉDIA</span> <span class="tag info"><span class="dot"></span>EM REPARO</span>
-              <span class="tag"><span class="dot" style="background:rgba(15,23,42,.35)"></span>PISO</span>
-              <span class="tag"><span class="dot" style="background:rgba(37,99,235,.85)"></span>VISTORIA</span>
-              <span class="tag"><span class="dot" style="background:rgba(16,185,129,.85)"></span>📷 0 foto(s)</span>
-            </div>
-          </div>
-          <div class="mono" style="opacity:.60">06/01/2026 09:17</div>
-        </div></div>
+              <div style="margin-top:12px;" class="list" id="a_list"><div class="item" style="cursor:default"><div style="color:rgba(71,85,105,.95)">Nenhum registro.</div><div class="mono">—</div></div></div>
             </div>
           </section>
         </div>
