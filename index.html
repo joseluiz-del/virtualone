@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0062)file:///C:/Users/HxTos/Downloads/damage_mobile_no_reports.html -->
+<!-- saved from url=(0050)file:///C:/Users/HxTos/Downloads/index%20(20).html -->
 <html lang="pt-BR"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   
   <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -426,8 +426,8 @@
         <h1 class="title">Damage</h1>
 
         <div class="tabs" id="nav" role="tablist" aria-label="Damage Tabs">
-          <a class="tab" data-page="inspect" role="tab" aria-selected="true"><span class="pill"></span> Inspeção</a>
-          <a class="tab active" data-page="avarias" role="tab" aria-selected="false"><span class="pill"></span> Avarias</a>
+          <a class="tab active" data-page="inspect" role="tab" aria-selected="true"><span class="pill"></span> Inspeção</a>
+          <a class="tab" data-page="avarias" role="tab" aria-selected="false"><span class="pill"></span> Avarias</a>
 </div>
 
       </div>
@@ -435,8 +435,8 @@
       <div class="content">
 <div class="top">
         <div>
-          <h1 id="pageTitle">CY | Avarias</h1>
-          <div class="sub" id="pageSub">Registrar avaria com fotos/evidências e consultar lista.</div>
+          <h1 id="pageTitle">CY | Inspect</h1>
+          <div class="sub" id="pageSub">Registrar inspeção e gerar avaria.</div>
         </div>
         <div style="display:flex; gap:10px; flex-wrap:wrap;">
           <button class="btn" id="seed">🧪 </button>
@@ -445,7 +445,7 @@
       </div>
 
       <!-- INSPECT -->
-      <section class="page" id="page-inspect">
+      <section class="page active" id="page-inspect">
         <div class="grid">
           <section class="card">
             <h2>
@@ -538,34 +538,14 @@
                 <button class="btn" id="i_clear">🧹 Limpar</button>
               </div>
 
-              <div style="margin-top:12px;" class="list" id="i_list">
-        <div class="item" data-id="INSP-20260105-151200">
-          <div>
-            <div><b>ABCD1234567</b> <span class="mono" style="opacity:.70">• INSP-20260105-151200</span></div>
-            <div style="margin-top:6px; display:flex; gap:8px; flex-wrap:wrap;">
-              <span class="tag ok"><span class="dot"></span>BAIXA</span> <span class="tag info"><span class="dot"></span>ENCERRADA</span>
-              <span class="tag"><span class="dot" style="background:rgba(15,23,42,.35)"></span>GATE IN</span>
-            </div>
-          </div>
-          <div class="mono" style="opacity:.60">06/01/2026 14:54</div>
-        </div>
-        <div class="item" data-id="INSP-20260105-141020">
-          <div>
-            <div><b>TGHU0099887</b> <span class="mono" style="opacity:.70">• INSP-20260105-141020</span></div>
-            <div style="margin-top:6px; display:flex; gap:8px; flex-wrap:wrap;">
-              <span class="tag bad"><span class="dot"></span>ALTA</span> <span class="tag info"><span class="dot"></span>EM ANÁLISE</span>
-              <span class="tag"><span class="dot" style="background:rgba(15,23,42,.35)"></span>TRANSFERÊNCIA</span>
-            </div>
-          </div>
-          <div class="mono" style="opacity:.60">06/01/2026 13:31</div>
-        </div></div>
+              <div style="margin-top:12px;" class="list" id="i_list"><div class="item" style="cursor:default"><div style="color:rgba(71,85,105,.95)">Nenhum registro.</div><div class="mono">—</div></div></div>
             </div>
           </section>
         </div>
       </section>
 
       <!-- AVARIAS -->
-      <section class="page active" id="page-avarias">
+      <section class="page" id="page-avarias">
         <div class="grid">
           <section class="card">
             <h2>
@@ -709,19 +689,7 @@
                 <button class="btn" id="a_clear">🧹 Limpar</button>
               </div>
 
-              <div style="margin-top:12px;" class="list" id="a_list">
-        <div class="item" data-id="AVA-20260105-155500">
-          <div>
-            <div><b>TGHU0099887</b> <span class="mono" style="opacity:.70">• AVA-20260105-155500</span></div>
-            <div style="margin-top:6px; display:flex; gap:8px; flex-wrap:wrap;">
-              <span class="tag bad"><span class="dot"></span>ALTA</span> <span class="tag info"><span class="dot"></span>EM ANÁLISE</span>
-              <span class="tag"><span class="dot" style="background:rgba(15,23,42,.35)"></span>PORTAS</span>
-              <span class="tag"><span class="dot" style="background:rgba(37,99,235,.85)"></span>VISTORIA</span>
-              <span class="tag"><span class="dot" style="background:rgba(16,185,129,.85)"></span>📷 2 foto(s)</span>
-            </div>
-          </div>
-          <div class="mono" style="opacity:.60">06/01/2026 15:18</div>
-        </div></div>
+              <div style="margin-top:12px;" class="list" id="a_list"><div class="item" style="cursor:default"><div style="color:rgba(71,85,105,.95)">Nenhum registro.</div><div class="mono">—</div></div></div>
             </div>
           </section>
         </div>
