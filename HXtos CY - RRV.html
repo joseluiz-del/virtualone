@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<!-- saved from url=(0048)file:///C:/Users/HxTos/Desktop/rrv_hxtos_cy.html -->
+<html lang="pt-br"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HXtos CY - RRV</title>
+<style>
+body {
+    margin:0;
+    font-family: Arial, sans-serif;
+    background:#f4f6f8;
+}
+.header {
+    background:#0f8fa6;
+    color:white;
+    padding:15px;
+    text-align:center;
+    font-weight:bold;
+    font-size:18px;
+}
+.container {
+    padding:20px;
+}
+.section {
+    background:white;
+    padding:15px;
+    margin-bottom:15px;
+    border-radius:8px;
+    box-shadow:0 2px 6px rgba(0,0,0,0.05);
+}
+.section h3 {
+    margin-top:0;
+    color:#0f8fa6;
+}
+.row {
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+.field {
+    flex:1;
+    min-width:200px;
+    display:flex;
+    flex-direction:column;
+}
+.field label {
+    font-size:12px;
+    margin-bottom:4px;
+}
+.field input, .field select {
+    padding:8px;
+    border-radius:4px;
+    border:1px solid #ccc;
+}
+.button {
+    background:#0f8fa6;
+    color:white;
+    border:none;
+    padding:8px 14px;
+    border-radius:4px;
+    cursor:pointer;
+}
+.button.secondary {
+    background:#6c757d;
+}
+.cards {
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+}
+.card {
+    background:#eef8fa;
+    padding:10px;
+    border-radius:6px;
+    width:200px;
+}
+.card button {
+    margin-top:6px;
+    width:100%;
+}
+.grid {
+    width:100%;
+    border-collapse:collapse;
+}
+.grid th, .grid td {
+    border:1px solid #ddd;
+    padding:8px;
+    font-size:13px;
+}
+.grid th {
+    background:#e9ecef;
+}
+.badge {
+    padding:4px 8px;
+    border-radius:12px;
+    font-size:12px;
+    color:white;
+}
+.badge.aprovada { background:#28a745; }
+.badge.draft { background:#ffc107; color:black; }
+</style>
+</head>
+<body>
+
+<div class="header">HXtos CY - RRV (Requisição de Retirada de Vazios)</div>
+
+<div class="container">
+
+<!-- BLOCO IDENTIFICAÇÃO -->
+<div class="section">
+<h3>Identificação</h3>
+<div class="row">
+<div class="field">
+<label>Nº RRV</label>
+<input value="RRV-000123" readonly="">
+</div>
+<div class="field">
+<label>Status</label>
+<span class="badge draft">Draft</span>
+</div>
+<div class="field">
+<label>Deadline Retirada</label>
+<input type="datetime-local">
+</div>
+<div class="field">
+<label>Tipo de Operação</label>
+<select>
+<option>Exportação</option>
+<option>Reposição</option>
+<option>Reposicionamento</option>
+</select>
+</div>
+</div>
+</div>
+
+<!-- BLOCO ARMADOR -->
+<div class="section">
+<h3>Armador</h3>
+<div class="row">
+<div class="field">
+<label>Armador</label>
+<select>
+<option>MCC</option>
+<option>MSC</option>
+<option>MAERSK</option>
+</select>
+</div>
+<div class="field">
+<label>Contrato / Ref.</label>
+<input>
+</div>
+<div class="field">
+<label>Cliente Ref.</label>
+<input>
+</div>
+</div>
+</div>
+
+<!-- BLOCO LOCAL -->
+<div class="section">
+<h3>Local de Retirada</h3>
+<div class="row">
+<div class="field">
+<label>Pátio</label>
+<select>
+<option>CY Santos</option>
+<option>Redex Interior</option>
+</select>
+</div>
+<div class="field">
+<label>Quadra</label>
+<select>
+<option>Q1</option>
+<option>Q2</option>
+</select>
+</div>
+<div class="field">
+<label>Observação</label>
+<input>
+</div>
+</div>
+</div>
+
+<!-- BLOCO TRANSPORTADORA -->
+<div class="section">
+<h3>Transportadora</h3>
+<div class="row">
+<div class="field">
+<label>Transportadora</label>
+<select>
+<option>TransLog</option>
+<option>Rodomax</option>
+</select>
+</div>
+<div class="field">
+<label>Agendamento Vinculado</label>
+<select>
+<option>Sim</option>
+<option>Não</option>
+</select>
+</div>
+</div>
+</div>
+
+<!-- BLOCO CONTAINERS -->
+<div class="section">
+<h3>Contêineres Solicitados</h3>
+<div class="cards" id="cardsContainer">
+<div class="card">
+        <strong>20' Dry</strong><br>
+        ISO: 22G1<br>
+        Quantidade: 1<br>
+        <button onclick="this.parentElement.remove()">Remover</button>
+    </div><div class="card">
+        <strong>20' Dry</strong><br>
+        ISO: 22G1<br>
+        Quantidade: 1<br>
+        <button onclick="this.parentElement.remove()">Remover</button>
+    </div></div>
+<button class="button" onclick="addCard()">+ Adicionar Tipo</button>
+</div>
+
+<!-- BLOCO GRID -->
+<div class="section">
+<h3>RRVs Cadastradas</h3>
+<table class="grid">
+<thead>
+<tr>
+<th>Nº RRV</th>
+<th>Armador</th>
+<th>Deadline</th>
+<th>Transportadora</th>
+<th>Qtd</th>
+<th>Status</th>
+<th>Ações</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RRV-000120</td>
+<td>MCC</td>
+<td>25/02/2026</td>
+<td>TransLog</td>
+<td>5</td>
+<td><span class="badge aprovada">Aprovada</span></td>
+<td><button class="button secondary">Editar</button></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div style="text-align:right;">
+<button class="button secondary">Cancelar</button>
+<button class="button">Salvar</button>
+</div>
+
+</div>
+
+<script>
+function addCard(){
+    const container = document.getElementById("cardsContainer");
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `
+        <strong>20' Dry</strong><br>
+        ISO: 22G1<br>
+        Quantidade: 1<br>
+        <button onclick="this.parentElement.remove()">Remover</button>
+    `;
+    container.appendChild(card);
+}
+</script>
+
+
+
+</body></html>
